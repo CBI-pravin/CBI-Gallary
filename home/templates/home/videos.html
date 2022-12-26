@@ -1,0 +1,81 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+	
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>CBI Video's</h2>
+            <form method ='get' action="{% url 'searchvideo' %}" >
+              <div class="col-md-6 offset-md-3 form-group">
+                  <input type="search" name="search" class="form-control" id="search" placeholder="Search...." required>
+                </div>
+                <br>
+            </form>
+    
+         
+            {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+    <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alert-dismissible  show mt-4" role="alert">
+      <strong>{{message}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+  
+          </div>
+          
+        </div>
+        
+      </div>
+    </div><!-- End Page Header -->
+
+
+{% for video in videos %}
+
+    <video width="310" height="240" controls   controlsList="nodownload">
+        <source src="{{video.video.url}}">
+      
+      </video>
+ 
+
+{% endfor %}
+
+
+
+<!-- -------------------pagination -------------------------------- -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {%if page_obj.has_previous %} {# whether the previous page exists #}
+      <li class="page-item ">
+        <a  href="?page={{page_obj.previous_page_number}}" class="page-link">Previous</a>  {# link to the prev page #}
+      </li>
+      {% endif %}
+      {%if page_obj.has_previous or page_obj.has_next %}
+      <li class="page-item"><a class="page-link" >{{page_obj.number}}</a></li>
+      {% endif %}
+      {%if page_obj.has_next %} {# whether the next page exists #}
+      <li class="page-item">
+        <a href="?page={{page_obj.next_page_number}}" class="page-link">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  
+  
+  <!-- -------------------pagination -------------------------------- -->
+
+{% endblock %}

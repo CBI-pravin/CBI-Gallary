@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+
+
+
+{% block content %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade"
+  data-aos-delay="1500">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        <h4>Folder name : <strong class="text-uppercase">{{folder.name}}</strong></h4>
+        <p>Created By: <a href="{% url 'profile' folder.folder_owner.id %}">{{folder.folder_owner.name}}</a> </p>
+        {% if request.user.is_superuser %}
+
+        <a href="{% url 'add_img_folder' folder.id %}" class="btn btn-lg  btn-outline-success  " title="Add Photo's"><i class="bi bi-file-earmark-plus"></i></a> &nbsp;
+        {% if folder.photo.all  %}
+        <a href="{% url 'remove_img_folder' folder.id %}" > <button class="btn btn-lg  btn-outline-danger"  title="remove multiple photo's">
+          <i class="bi bi-trash"> </i></button></a>
+    
+        {% endif %}
+        {% endif %}
+
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</section><!-- End Hero Section -->
+
+
+{% if folder.photo.all %}
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+  <!-- ======= Gallery Section ======= -->
+  <!-- End Gallery Section -->
+
+  <section id="gallery" class="gallery">
+    <div class="container-fluid">
+
+      <div class="row gy-4 justify-content-center">
+        {% for img in folder.photo.all reversed  %}
+        <div class="col-xl-3 col-lg-4 col-md-6"  style="max-height: 200px;">
+          <div class="gallery-item h-100">
+            <img src="{{img.image.url}}" class="img-fluid" alt="">
+            <div class="gallery-links d-flex align-items-center justify-content-center">
+              <a href="{{img.image.url}}" title=" {{ img.owner.name}} ({{img.created_date}})"
+                class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+              <a href="{% url 'full_img' img.id%}" class="details-link"><i title='view full details'class="bi bi-link-45deg"></i></a>
+              {% if request.user.is_superuser %}
+
+              <a onclick="return confirm('Are you sure you want to remove it?')" href="{% url 'remove_post_folder' %}?i={{img.id}}&f={{folder.id}}"  class="details-link">
+                <i class="bi bi-trash" title="remove photo" style="font-size: 1.5rem;"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div><!-- End Gallery Item -->
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- End Gallery Section -->
+</main><!-- End #main -->
+
+{% else %}
+<main id="main" data-aos="fade" data-aos-delay="1500">
+  <h1 class="text text-center mt-4">
+    Empty Folder !
+  </h1>
+</main>
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

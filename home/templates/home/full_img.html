@@ -1,0 +1,130 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>Gallery Single Image</h2>
+
+            <a class="cta-btn" href="{% url 'home' %}">Home</a>
+
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery-single" class="gallery-single">
+      <div class="container p-0">
+
+
+          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{{image.image.url}} " class="d-block w-100" alt="...">
+              </div>
+              
+            </div>
+          </div>
+      
+   
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h1 style="font-family: 'Trirong', serif;">Description</h1>
+             
+
+              <div class="testimonial-item">
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  {{image.description}}
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+                <div>
+                  
+                  <img src="{{image.owner.profile_pic.url}}" class="testimonial-img" alt="" >
+                  <h3>Posted By :  <a href="{% url 'profile' image.owner.id %}">{{image.owner.name}} </a></h3>
+                  <h4><strong>Designation : </strong>{{image.owner.designation}}</h4>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Picture information</h3>
+              <ul>
+                <li><strong>Name</strong> <span>{{image.image.name}}</span></li>
+               
+                
+                
+                <li><strong>Uploaded ON</strong> <span>{{image.created_date}}</span></li>
+                
+                {% if request.user.is_superuser or request.user == image.owner %}
+                
+                <a  class="btn  btn-outline-danger " onclick="return confirm('Are you sure you want to delete this post?')" href="{% url 'deletePost' image.id %}" title="delete  photo"  id="delete-object" data-object-id="3"><i class="bi bi-trash"> </i></a>
+               
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Single Section -->
+
+
+
+  </main><!-- End #main -->
+
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <script>
+//     var elm = document.getElementById('delete-object');
+//     var user = document.getElementById('delete-user');
+// var objectID = elm.getAttribute('data-object-id');
+// var objectIDuser = user.getAttribute('data-object-id');
+
+// elm.addEventListener('click', function() {
+//   var ask = confirm('Are you sure you want to delete this photo?');
+//   if (ask && objectID) {
+//     window.location.href = "{% url 'deletePost' image.id %}";;
+//   } else {
+    
+//   }
+//   return false;
+// });
+// user.addEventListener('click', function() {
+//   var ask = confirm('Are you sure you want to delete this user?');
+//   if (ask && objectIDuser) {
+//     window.location.href = "";;
+//   } else {
+    
+//   }
+//   return false;
+  
+// });
+
+
+
+  </script>
+
+
+  {% endblock %}
+
+
+
+

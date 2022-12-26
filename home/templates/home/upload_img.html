@@ -1,0 +1,170 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% if page == 'video_upload' %}
+
+<div class="page-header d-flex align-items-center">
+  <div class="container position-relative">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-6 text-center">
+        <h2>Upload Video </h2>
+        <p>The Central Bureau of Investigation (CBI), functioning under Dept. of Personnel, Ministry of Personnel,
+           Pension & Public Grievances, Government of India, is the premier investigating police agency in India.
+            It is an elite force playing a major role in preservation of values in public life and in ensuring the health of the national economy. 
+            It is also the nodal police agency in India, which coordinates investigation on behalf of Interpol Member countries. </p>
+
+        
+
+
+        <div class="row justify-content-center mt-4">
+
+          <div class="col-lg-9">
+
+              {% for message in messages %}
+              {% if message.tags == 'error' %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% else %}
+              <div class="alert alert-success alert-dismissible  show" role="alert">
+                <strong>{{message}}</strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endif %}
+              {% endfor %}
+
+            <form action="{%  url 'upload_video' %}" method="post"  enctype="multipart/form-data" role="form" >
+              
+              {% csrf_token %}
+  
+              {% for field in form %}
+              <div class="form-group mt-3">
+                
+                  {{field}}
+              </div>
+              {% endfor %}
+              
+              <br>
+              <div class="text-center">
+                  <button type="submit" class=" cta-btn btn btn-success">Upload Video</button>
+              </div>
+              
+            </form>
+          </div><!-- End Contact Form -->
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div id="preloader">
+  <div class="line"></div>
+</div>
+
+{% else %}
+
+<div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>Upload Image </h2>
+          <p>The Central Bureau of Investigation (CBI), functioning under Dept. of Personnel, Ministry of Personnel,
+             Pension & Public Grievances, Government of India, is the premier investigating police agency in India.
+              It is an elite force playing a major role in preservation of values in public life and in ensuring the health of the national economy. 
+              It is also the nodal police agency in India, which coordinates investigation on behalf of Interpol Member countries. </p>
+
+          
+
+
+          <div class="row justify-content-center mt-4">
+
+            <div class="col-lg-9">
+
+                {% for message in messages %}
+                {% if message.tags == 'error' %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>{{message}}</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% else %}
+                <div class="alert alert-success alert-dismissible  show" role="alert">
+                  <strong>{{message}}</strong> 
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+              <form action="{%  url 'upload_img' %}" method="post"  enctype="multipart/form-data" role="form" >
+                
+                {% csrf_token %}
+    
+                {% for field in form %}
+                <div class="form-group mt-3">
+                  
+                    {{field}}
+                </div>
+                {% endfor %}
+                
+                <br>
+                <div class="text-center">
+                    <button type="submit" class=" cta-btn btn btn-success">Upload Image</button>
+                </div>
+                
+              </form>
+            </div><!-- End Contact Form -->
+            
+  
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+
+
+
+
+
+<script>
+   function validateFileType(){
+        var fileName = document.getElementById("fileName").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+            //TO DO
+        }else{
+            alert("Only .jpg .jpeg and .png files are allowed!");
+        }   
+    }
+</script>
+
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+

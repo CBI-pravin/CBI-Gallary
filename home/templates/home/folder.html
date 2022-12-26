@@ -1,0 +1,244 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<style>
+/* Lazy Load Styles */
+.card-image {
+	display: block;
+	min-height: 10rem; /* layout hack */
+	min-width: 10rem; /* layout hack */
+	background: #fff center center no-repeat;
+	background-size: cover;
+	
+}
+
+.card-image > img {
+	display: block;
+	width: 90%;
+	opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+	filter: none; /* remove the blur on fullres image */
+	transition: filter 1s;
+}
+
+
+
+
+/* Layout Styles */
+
+
+.card-list {
+	display: block;
+	margin: 1rem auto;
+	padding: 0;
+	font-size: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.card {
+	display: inline-block;
+	width: 90%;
+	max-width: 13rem;
+	max-height: 17rem;
+	margin: 1rem;
+	font-size: 1rem;
+	text-decoration: none;
+	overflow: hidden;
+	box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+	transition: transform 0.2s ease-in-out, box-shadow 0.1s;
+	background-color: 	#282828;
+}
+
+.card:hover {
+	transform: translateY(-0.5rem) scale(1.0125);
+	box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card-description {
+	display: block;
+	padding-top:  0.5em;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.card-description > h2 {
+	margin: 0 0 0.5em;
+}
+
+.card-description > p {
+	margin: 0;
+}
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(204, 207, 205, 0.966);
+  }
+</style>
+<main id="main" data-aos="fade" data-aos-delay="1500">
+	
+
+  <!-- ======= End Page Header ======= -->
+  <div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>CBI Folder's</h2>
+		  <form method ='get' action="{% url 'searchfolder' %}" >
+			<div class="col-md-6 offset-md-3 form-group">
+                <input type="search" name="search" class="form-control" id="search" placeholder="Search...." required>
+              </div>
+			  <br>
+		  </form>
+		  
+
+          
+          {% if request.user.is_superuser %}
+
+          <a class=" btn btn-lg btn-outline-success" id="create-folder" data-object-id="4" title="Create New Folder"><i class="bi bi-folder-plus"></i></a>
+          <a class=" btn btn-lg btn-outline-danger" href="{% url 'delete_folder' %}" title="delete Folder"><i class="bi bi-folder-x"></i></a>
+
+          {% endif %}
+		  {% if messages %}
+  {% for message in messages %}
+  {% if message.tags == 'error' %}
+  <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% else %}
+  <div class="alert alert-success alert-dismissible  show mt-4" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+
+        </div>
+		
+      </div>
+	  
+    </div>
+  </div><!-- End Page Header -->
+
+      <ul class="container-fluid card-list ">
+        
+    {% for folder in obj %}
+	
+        <li class="card  " style="height: 21rem;" >
+          <a class="card-image" href="{{folder.folder_owner.profile_pic.url}}" 
+           style="background-image: url({{folder.folder_owner.profile_pic.url}}); " 
+          data-image-full="{{folder.folder_owner.profile_pic.url}}">
+           
+          </a>
+          <a class="card-description" href="{% url 'folder' %}?q={{folder.id}}" >
+            <strong>{{folder.name}}</strong>
+			
+           <a href="{% url 'profile' folder.folder_owner.id %}"> <p class=" fs-6 text-muted m-0" >Created By : <strong>{{folder.folder_owner.name }}</strong></p></a>
+            <p><small class="text-muted" >ON : {{folder.folder_created_date|date:"D d M Y"}}</small></p>
+          </a>
+        </li>
+        
+        {% endfor %}
+        
+      </ul>
+
+</main><!-- End #main -->
+
+
+<br>
+<br>
+
+<!-- -------------------pagination -------------------------------- -->
+<nav aria-label="Page navigation example">
+	<ul class="pagination justify-content-center">
+	  {%if page_obj.has_previous %} {# whether the previous page exists #}
+	  <li class="page-item ">
+		<a  href="?page={{page_obj.previous_page_number}}" class="page-link">Previous</a>  {# link to the prev page #}
+	  </li>
+	  {% endif %}
+	  <li class="page-item"><a class="page-link" >{{page_obj.number}}</a></li>
+	  {%if page_obj.has_next %} {# whether the next page exists #}
+	  <li class="page-item">
+		<a href="?page={{page_obj.next_page_number}}" class="page-link">Next</a>
+	  </li>
+	  {% endif %}
+	</ul>
+  </nav>
+  
+  
+  <!-- -------------------pagination -------------------------------- -->
+
+
+<div id="preloader">
+    <div class="line"></div>
+  </div>
+
+
+
+<script>
+  // js code to create a folder with name 
+  var elm = document.getElementById('create-folder');
+  var objectID = elm.getAttribute('data-object-id');
+
+  elm.addEventListener('click', function () {
+    var foo = prompt('Type folder name here');
+    if (foo === "" && objectID) {
+      name = alert('please enter a valid name ');
+    } else if (foo && objectID) {
+      let bar = confirm('Confirm name : ' + foo);
+      if (bar) { window.location.href = "{% url 'folder' %}" + "?folder_name=" + foo; }
+
+    }
+    else {
+
+    }
+    return false;
+  });
+
+
+
+
+  // This is "probably" IE9 compatible but will need some fallbacks for IE8
+// - (event listeners, forEach loop)
+
+// wait for the entire page to finish loading
+window.addEventListener('load', function() {
+	
+	// setTimeout to simulate the delay from a real page load
+	setTimeout(lazyLoad, 1000);
+	
+});
+
+function lazyLoad() {
+	var card_images = document.querySelectorAll('.card-image');
+	
+	// loop over each card image
+	card_images.forEach(function(card_image) {
+		var image_url = card_image.getAttribute('data-image-full');
+		var content_image = card_image.querySelector('img');
+		
+		// change the src of the content image to load the new high res photo
+		content_image.src = image_url;
+		
+		// listen for load event when the new photo is finished loading
+		content_image.addEventListener('load', function() {
+			// swap out the visible background image with the new fully downloaded photo
+			card_image.style.backgroundImage = 'url(' + image_url + ')';
+			// add a class to remove the blur filter to smoothly transition the image change
+			card_image.className = card_image.className + ' is-loaded';
+		});
+		
+	});
+	
+}
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<style>
+
+
+/* css for checkbox  */
+
+input.CustomCheckboxCBI {
+margin: 1rem;
+height:2rem;
+width: 2rem;
+}
+
+/* end css foe checkbox */
+
+
+/* Lazy Load Styles */
+.card-image {
+	display: block;
+	min-height: 10rem; /* layout hack */
+	min-width: 10rem; /* layout hack */
+	background: #fff center center no-repeat;
+	background-size: cover;
+	
+}
+
+.card-image > img {
+	display: block;
+	width: 90%;
+	opacity: 0; /* visually hide the img element */
+}
+
+.card-image.is-loaded {
+	filter: none; /* remove the blur on fullres image */
+	transition: filter 1s;
+}
+
+
+
+
+/* Layout Styles */
+
+
+.card-list {
+	display: block;
+	margin: 1rem auto;
+	padding: 0;
+	font-size: 0;
+	text-align: center;
+	list-style: none;
+}
+
+.card {
+	display: inline-block;
+	width: 90%;
+	max-width: 13rem;
+	max-height: 17rem;
+	margin: 1rem;
+	font-size: 1rem;
+	text-decoration: none;
+	overflow: hidden;
+	box-shadow: 0 0 3rem -1rem rgba(0,0,0,0.5);
+	transition: transform 0.2s ease-in-out, box-shadow 0.1s;
+	background-color: 	#282828;
+}
+
+.card:hover {
+	transform: translateY(-0.5rem) scale(1.0125);
+	box-shadow: 0 0.5em 3rem -1rem rgba(0,0,0,0.5);
+}
+
+.card-description {
+	display: block;
+	padding-top:  0.5em;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.card-description > h2 {
+	margin: 0 0 0.5em;
+}
+
+.card-description > p {
+	margin: 0;
+}
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(204, 207, 205, 0.966);
+  }
+</style>
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+  <!-- ======= End Page Header ======= -->
+  <div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>CBI Folder's</h2>
+			<h4>Delete multiple folder</h4>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Page Header -->
+
+  <form method="post" action="{% url 'delete_folder' %}" onsubmit="return confirm('Are you sure you want to delete it?')">
+	<input class="btn btn-primary"  type="submit" value="Submit">
+      <ul class="container-fluid card-list ">
+        
+    {% for folder in obj %}
+		{% csrf_token %}
+	
+        <li class="card  " style="height: 21rem;" >
+			
+          <a class="card-image" href="{% url 'folder' %}?q={{folder.id}}" 
+           style="background-image: url({{folder.folder_owner.profile_pic.url}}); " 
+          data-image-full="{{folder.folder_owner.profile_pic.url}}"> 
+		  <span style="float: right;"><input type="checkbox" class="CustomCheckboxCBI" name="checkboxCBI" value="{{folder.id}}" ></span>
+           
+          </a>
+          <a class="card-description" href="{% url 'folder' %}?q={{folder.id}}" >
+            <strong>{{folder.name}}</strong>
+			
+           <a href="{% url 'profile' folder.folder_owner.id %}"> <p class=" fs-6 text-muted m-0" >Created By : <strong>{{folder.folder_owner.name }}</strong></p></a>
+            <p><small class="text-muted" >ON : {{folder.folder_created_date|date:"D d M Y"}}</small></p>
+          </a>
+        </li>
+        
+        {% endfor %}
+        
+      </ul>
+	  
+	</form>
+
+</main><!-- End #main -->
+
+
+<style>
+
+</style>
+
+<div id="preloader">
+    <div class="line"></div>
+  </div>
+
+<script>
+  // js code to create a folder with name 
+  
+
+
+
+  // This is "probably" IE9 compatible but will need some fallbacks for IE8
+// - (event listeners, forEach loop)
+
+// wait for the entire page to finish loading
+
+</script>
+
+
+{% endblock %}

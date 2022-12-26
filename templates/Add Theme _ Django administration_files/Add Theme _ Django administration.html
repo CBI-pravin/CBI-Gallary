@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://127.0.0.1:8000/admin/admin_interface/theme/add/ -->
+<html lang="en-us" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+
+Add Theme | Django administration
+</title>
+<link rel="stylesheet" href="./Add Theme _ Django administration_files/base.css">
+
+  <link rel="stylesheet" href="./Add Theme _ Django administration_files/dark_mode.css">
+
+
+  <link rel="stylesheet" href="./Add Theme _ Django administration_files/nav_sidebar.css">
+  <script src="./Add Theme _ Django administration_files/nav_sidebar.js.download" defer=""></script>
+
+
+
+
+
+    <style type="text/css">
+        :root .admin-interface {
+            --admin-interface-title-color: #F5DD5D;
+            --admin-interface-logo-color: #FFFFFF;
+            --admin-interface-logo-default-background-image: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='utf-8'?><svg width='104px' height='36px' viewBox='0 0 104 36' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:sketch='http://www.bohemiancoding.com/sketch/ns'><g id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' sketch:type='MSPage'><g id='logo-django' sketch:type='MSArtboardGroup' transform='translate(-8.000000, -5.000000)' fill='%23FFFFFF'><path d='M20.2602817,5 L25.9509859,5 L25.9509859,31.0824248 C23.0360563,31.6338042 20.8901408,31.8507285 18.5684507,31.8507285 C11.6180282,31.8434735 8,28.7383366 8,22.7747325 C8,17.0287781 11.8377465,13.2997118 17.7847887,13.2997118 C18.7076056,13.2997118 19.4107042,13.3722617 20.2602817,13.5899115 L20.2602817,5 L20.2602817,5 Z M20.2602817,18.1242821 C19.5938028,17.9066323 19.044507,17.8340823 18.3414085,17.8340823 C15.4630986,17.8340823 13.8005634,19.5897906 13.8005634,22.6666331 C13.8005634,25.6622196 15.3898592,27.316358 18.3047887,27.316358 C18.9346479,27.316358 19.4473239,27.2808085 20.2602817,27.1719836 L20.2602817,18.1242821 L20.2602817,18.1242821 Z M34.9960563,13.6987364 L34.9960563,26.7577235 C34.9960563,31.2550936 34.6591549,33.417807 33.6704225,35.2823401 C32.7476056,37.0750489 31.531831,38.2053768 29.0197183,39.453961 L23.7391549,36.9654985 C26.2512676,35.7981701 27.4670423,34.7665101 28.2433803,33.1921767 C29.056338,31.5822938 29.3126761,29.7177606 29.3126761,24.8133855 L29.3126761,13.6987364 L34.9960563,13.6987364 Z M29.3126761,5.02901997 L35.0033803,5.02901997 L35.0033803,10.8112493 L29.3126761,10.8112493 L29.3126761,5.02901997 Z M38.4302535,14.9828702 C40.9430986,13.8148163 43.3453521,13.2997118 45.9673239,13.2997118 C48.8895775,13.2997118 50.8077183,14.0687411 51.6580282,15.5705246 C52.1340845,16.4121037 52.2878873,17.5076077 52.2878873,19.8509704 L52.2878873,31.2993491 C49.7398873,31.6620987 46.5239437,31.922553 44.1649014,31.922553 C39.3970141,31.922553 37.2584225,30.2756696 37.2584225,26.6198787 C37.2584225,22.6659076 40.1008451,20.8376494 47.079831,20.2565245 L47.079831,19.0159207 C47.079831,17.9929667 46.559831,17.6229621 45.124338,17.6229621 C43.0223662,17.6229621 40.6567324,18.2106165 38.4375775,19.3423954 L38.4302535,14.9828702 Z M47.336169,23.9420608 C43.571662,24.3048105 42.3485634,24.8931904 42.3485634,26.3579734 C42.3485634,27.4549284 43.051662,27.9693073 44.604338,27.9693073 C45.4539155,27.9693073 46.2302535,27.8967574 47.3354366,27.7153826 L47.3354366,23.9420608 L47.336169,23.9420608 Z M55.056338,14.5765906 C58.4180282,13.6987364 61.1857465,13.2997118 63.9908169,13.2997118 C66.9057465,13.2997118 69.0157746,13.9599162 70.2674366,15.2367949 C71.4458592,16.4411237 71.8208451,17.7615324 71.8208451,20.5764696 L71.8208451,31.6258237 L66.1294085,31.6258237 L66.1294085,20.8013744 C66.1294085,18.6393866 65.3896901,17.8340823 63.3616901,17.8340823 C62.5846197,17.8340823 61.8822535,17.9066323 60.7397183,18.2403619 L60.7397183,31.6265492 L55.056338,31.6265492 L55.056338,14.5765906 Z M74.0326761,34.7012152 C76.0240563,35.7241692 78.0169014,36.1964692 80.1261972,36.1964692 C83.8540845,36.1964692 85.4433803,34.6946857 85.4433803,31.1107193 L85.4433803,31.0018944 C84.3374648,31.5460188 83.223493,31.7716491 81.7513803,31.7716491 C76.764507,31.7716491 73.5932394,28.5141573 73.5932394,23.3558574 C73.5932394,16.9496987 78.2878873,13.3294573 86.5932394,13.3294573 C89.0321127,13.3294573 91.2878873,13.583382 94.0189859,14.1347615 L92.0708169,18.1975575 C90.5562254,17.9073578 91.9463099,18.1540275 90.804507,18.0452026 L90.804507,18.6328571 L90.8777465,21.0124947 L90.9136338,24.0886117 C90.9509859,24.8583664 90.9509859,25.6259447 90.988338,26.3956994 L90.988338,27.9330324 C90.988338,32.7648576 90.5774648,35.0291409 89.3616901,36.900929 C87.5892958,39.6425908 84.5212958,41 80.1620845,41 C77.943662,41 76.0240563,40.6727998 74.0326761,39.9030451 L74.0326761,34.7012152 L74.0326761,34.7012152 Z M85.3335211,17.8703573 L85.1504225,17.8703573 L84.7395493,17.8703573 C83.6336338,17.8340823 82.3380282,18.1242821 81.4510986,18.6756615 C80.0895775,19.4446908 79.3872113,20.8376494 79.3872113,22.8110074 C79.3872113,25.6252192 80.7934085,27.2365531 83.3055211,27.2365531 C84.0811268,27.2365531 84.7117183,27.0921787 85.4441127,26.8738034 L85.4441127,26.4667983 L85.4441127,24.9294653 C85.4441127,24.269261 85.4067606,23.5365067 85.4067606,22.7674775 L85.3708732,20.17019 L85.3335211,18.3056569 L85.3335211,17.8703573 Z M102.84507,13.2271619 C108.528451,13.2271619 112,16.7748534 112,22.5208077 C112,28.4118619 108.382704,32.1039278 102.617296,32.1039278 C96.9265915,32.1039278 93.4176901,28.5569618 93.4176901,22.8480079 C93.4272113,16.9199532 97.044507,13.2271619 102.84507,13.2271619 Z M102.727887,27.5623023 C104.910423,27.5623023 106.199437,25.7710445 106.199437,22.6586526 C106.199437,19.5825356 104.94631,17.7542774 102.765239,17.7542774 C100.509465,17.7542774 99.2189859,19.5462607 99.2189859,22.6586526 C99.2189859,25.7710445 100.516056,27.5623023 102.727887,27.5623023 L102.727887,27.5623023 Z M102.727887,27.5623023' id='Shape' sketch:type='MSShapeGroup'></path></g></g></svg>");
+            --admin-interface-env-color: #E74C3C;
+            --admin-interface-header-background-color: #0C4B33;
+            --admin-interface-header-text-color: #44B78B;
+            --admin-interface-header-link-color: #FFFFFF;
+            --admin-interface-header-link-hover-color: #C9F0DD;
+            --admin-interface-module-background-color: #44B78B;
+            --admin-interface-module-background-selected-color: #FFFFCC;
+            --admin-interface-module-text-color: #FFFFFF;
+            --admin-interface-module-link-color: #FFFFFF;
+            --admin-interface-module-link-selected-color: #FFFFFF;
+            --admin-interface-module-link-hover-color: #C9F0DD;
+            --admin-interface-generic-link-color: #0C3C26;
+            --admin-interface-generic-link-hover-color: #156641;
+            --admin-interface-save-button-background-color: #0C4B33;
+            --admin-interface-save-button-background-hover-color: #0C3C26;
+            --admin-interface-save-button-text-color: #FFFFFF;
+            --admin-interface-delete-button-background-color: #BA2121;
+            --admin-interface-delete-button-background-hover-color: #A41515;
+            --admin-interface-delete-button-text-color: #FFFFFF;
+            --admin-interface-related-modal-background-color: #000000;
+            --admin-interface-related-modal-background-opacity: 0.3;
+
+        
+            --admin-interface-main-border-top: 10px solid var(--admin-interface-module-background-color);
+        
+
+        
+            --admin-interface-logo-max-width: min(400px, 100%);
+        
+
+        
+            --admin-interface-logo-max-height: 100px;
+        
+
+        
+            --admin-interface-related-modal-border-radius: 4px;
+        
+
+        
+            --admin-interface-module-border-radius: 4px;
+            --admin-interface-jsoneditor-border-radius: var(--admin-interface-module-border-radius);
+            --admin-interface-jsoneditor-overflow: hidden;
+        
+
+        
+            --admin-interface-related-modal-close-button-display: unset;
+        
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/admin-interface.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/admin-interface-fix.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/form-controls.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/language-chooser.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/list-filter-dropdown.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/rangefilter.css">
+    
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/related-modal.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/streamfield.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/jquery.ui.tabs.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/modeltranslation.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/sorl-thumbnail.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/ckeditor.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/tinymce.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/json-widget.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/import-export.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/rtl.css">
+    <link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/tabbed-changeform.css">
+
+
+
+<link rel="stylesheet" href="./Add Theme _ Django administration_files/forms.css">
+
+
+
+
+<script src="./Add Theme _ Django administration_files/saved_resource"></script>
+<script src="./Add Theme _ Django administration_files/jquery.min.js.download"></script>
+<script src="./Add Theme _ Django administration_files/jscolor.min.js.download"></script>
+<script src="./Add Theme _ Django administration_files/jquery.init.js.download"></script>
+<script src="./Add Theme _ Django administration_files/colorfield.js.download"></script>
+<script src="./Add Theme _ Django administration_files/core.js.download"></script>
+<script src="./Add Theme _ Django administration_files/RelatedObjectLookups.js.download"></script>
+<script src="./Add Theme _ Django administration_files/actions.js.download"></script>
+<script src="./Add Theme _ Django administration_files/urlify.js.download"></script>
+<script src="./Add Theme _ Django administration_files/prepopulate.js.download"></script>
+<script src="./Add Theme _ Django administration_files/xregexp.min.js.download"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="./Add Theme _ Django administration_files/responsive.css">
+    
+
+
+<meta name="robots" content="NONE,NOARCHIVE">
+
+
+
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/responsive(1).css">
+<link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/responsive_rtl.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/foldable-apps.css">
+<script type="text/javascript" src="./Add Theme _ Django administration_files/foldable-apps.js.download"></script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./Add Theme _ Django administration_files/magnific-popup.css">
+<script type="text/javascript" src="./Add Theme _ Django administration_files/jquery.magnific-popup.js.download"></script>
+<script type="text/javascript" src="./Add Theme _ Django administration_files/related-modal.js.download"></script>
+
+
+
+</head>
+
+<body class="
+
+flat-theme admin-interface
+ django-theme 
+ foldable-apps 
+
+
+ list-filter-highlight 
+ list-filter-sticky 
+ app-admin_interface model-theme change-form" data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    
+    <div id="header">
+        <div id="branding">
+        
+
+<h1 id="site-name">
+    <a href="http://127.0.0.1:8000/admin/">
+        
+            
+            <img class="logo default" style="display:none;" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="104" height="36">
+            
+        
+        
+        <span>Django administration</span>
+        
+    </a>
+</h1>
+
+        </div>
+        
+        
+        <div id="user-tools">
+            
+
+<span class="environment-label "></span><br>
+                Welcome,
+                <strong>pravin@gmail.com</strong>.
+            <br>
+
+            
+
+                
+                    <a href="http://127.0.0.1:8000/">View site</a> /
+                
+                
+                    
+                    
+                
+                
+                <a href="http://127.0.0.1:8000/admin/password_change/">Change password</a> /
+                
+                <form id="logout-form" method="post" action="http://127.0.0.1:8000/admin/logout/">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="ee54WC4JJHWpHf5QxS0ixTYfvatEmCclq8rPYEZZwdDBNep035FYoJ6JKud0Nh6g">
+                    <button type="submit">Log out</button>
+                </form>
+            
+
+
+    
+    
+
+
+
+
+
+        </div>
+        
+        
+        
+    </div>
+    
+    <!-- END Header -->
+    
+<div class="breadcrumbs">
+<a href="http://127.0.0.1:8000/admin/">Home</a>
+› <a href="http://127.0.0.1:8000/admin/admin_interface/">Admin Interface</a>
+› <a href="http://127.0.0.1:8000/admin/admin_interface/theme/">Themes</a>
+› Add Theme
+</div>
+
+    
+
+    <div class="main shifted" id="main">
+      
+        
+          
+<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Toggle navigation"></button>
+<nav class="sticky" id="nav-sidebar">
+  <input type="search" id="nav-filter" placeholder="Start typing to filter…" aria-label="Filter navigation items">
+  
+
+
+  
+    <div class="app-accounts module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8000/admin/accounts/" class="section" title="Models in the Accounts application">Accounts</a>
+        </caption>
+        
+          <tbody><tr class="model-myuser">
+            
+              <th scope="row"><a href="http://127.0.0.1:8000/admin/accounts/myuser/">Users</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8000/admin/accounts/myuser/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-admin_interface module current-app">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8000/admin/admin_interface/" class="section" title="Models in the Admin Interface application">Admin Interface</a>
+        </caption>
+        
+          <tbody><tr class="model-theme current-model">
+            
+              <th scope="row"><a href="http://127.0.0.1:8000/admin/admin_interface/theme/" aria-current="page">Themes</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8000/admin/admin_interface/theme/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-auth module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8000/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+        </caption>
+        
+          <tbody><tr class="model-group">
+            
+              <th scope="row"><a href="http://127.0.0.1:8000/admin/auth/group/">Groups</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8000/admin/auth/group/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-home module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8000/admin/home/" class="section" title="Models in the Home application">Home</a>
+        </caption>
+        
+          <tbody><tr class="model-myfolder">
+            
+              <th scope="row"><a href="http://127.0.0.1:8000/admin/home/myfolder/">Myfolders</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8000/admin/home/myfolder/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-mygallary">
+            
+              <th scope="row"><a href="http://127.0.0.1:8000/admin/home/mygallary/">Mygallarys</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8000/admin/home/mygallary/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+
+
+</nav>
+
+        
+      
+      <div class="content">
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="colM">
+          
+          <h1>Add Theme</h1>
+          
+          <div id="content-main">
+
+
+
+<form enctype="multipart/form-data" method="post" id="theme_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="ee54WC4JJHWpHf5QxS0ixTYfvatEmCclq8rPYEZZwdDBNep035FYoJ6JKud0Nh6g">
+<div>
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+</div>
+
+
+
+
+
+    
+    
+    
+
+    
+
+        
+
+  <fieldset class="module aligned wide">
+    
+    
+    
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_name">Name:</label>
+                        
+                            <input type="text" name="name" value="Django" class="vTextField" maxlength="50" required="" id="id_name">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-active">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="active" id="id_active" checked=""><label class="vCheckboxLabel" for="id_active">Active</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Environment</h2>
+    
+    
+        <div class="form-row field-env_name">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_env_name">Name:</label>
+                        
+                            <input type="text" name="env_name" class="vTextField" maxlength="50" id="id_env_name">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-env_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_env_color">Color:</label>
+                        
+                            <input type="text" id="id_env_color" class="colorfield_field jscolor form-control" name="env_color" value="#E74C3C" placeholder="#E74C3C" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_env_color_helptext">
+                          (red: #E74C3C, orange: #E67E22, yellow: #F1C40F, green: #2ECC71, blue: #3498DB)
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-env_visible_in_header">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="env_visible_in_header" id="id_env_visible_in_header" checked=""><label class="vCheckboxLabel" for="id_env_visible_in_header">Visible in header (marker and name)</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-env_visible_in_favicon">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="env_visible_in_favicon" id="id_env_visible_in_favicon" checked=""><label class="vCheckboxLabel" for="id_env_visible_in_favicon">Visible in favicon (marker)</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Language chooser</h2>
+    
+    
+        <div class="form-row field-language_chooser_active">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="language_chooser_active" id="id_language_chooser_active" checked=""><label class="vCheckboxLabel" for="id_language_chooser_active">Active</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-language_chooser_control">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_language_chooser_control">Control:</label>
+                        
+                            <select name="language_chooser_control" id="id_language_chooser_control">
+  <option value="default-select" selected="">Default Select</option>
+
+  <option value="minimal-select">Minimal Select</option>
+
+</select>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-language_chooser_display">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_language_chooser_display">Display:</label>
+                        
+                            <select name="language_chooser_display" id="id_language_chooser_display">
+  <option value="code" selected="">code</option>
+
+  <option value="name">name</option>
+
+</select>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Logo</h2>
+    
+    
+        <div class="form-row field-logo">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_logo">Logo:</label>
+                        
+                            <input type="file" name="logo" id="id_logo">
+                        
+                    
+                    
+                        <div class="help" id="id_logo_helptext">
+                          Leave blank to use the default Django logo
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-logo_max_width">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_logo_max_width">Max width:</label>
+                        
+                            <input type="number" name="logo_max_width" value="400" class="vIntegerField" min="0" id="id_logo_max_width">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-logo_max_height">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_logo_max_height">Max height:</label>
+                        
+                            <input type="number" name="logo_max_height" value="100" class="vIntegerField" min="0" id="id_logo_max_height">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-logo_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_logo_color">Color:</label>
+                        
+                            <input type="text" id="id_logo_color" class="colorfield_field jscolor form-control" name="logo_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_logo_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-logo_visible">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="logo_visible" id="id_logo_visible" checked=""><label class="vCheckboxLabel" for="id_logo_visible">Visible</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Favicon</h2>
+    
+    
+        <div class="form-row field-favicon">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_favicon">Favicon:</label>
+                        
+                            <input type="file" name="favicon" id="id_favicon">
+                        
+                    
+                    
+                        <div class="help" id="id_favicon_helptext">
+                          (.ico|.png|.gif - 16x16|32x32 px)
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Title</h2>
+    
+    
+        <div class="form-row field-title">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_title">Title:</label>
+                        
+                            <input type="text" name="title" value="Django administration" class="vTextField" maxlength="50" id="id_title">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-title_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_title_color">Color:</label>
+                        
+                            <input type="text" id="id_title_color" class="colorfield_field jscolor form-control" name="title_color" value="#F5DD5D" placeholder="#F5DD5D" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_title_color_helptext">
+                          #F5DD5D
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-title_visible">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="title_visible" id="id_title_visible" checked=""><label class="vCheckboxLabel" for="id_title_visible">Visible</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Header</h2>
+    
+    
+        <div class="form-row field-css_header_background_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_header_background_color">Background color:</label>
+                        
+                            <input type="text" id="id_css_header_background_color" class="colorfield_field jscolor form-control" name="css_header_background_color" value="#0C4B33" placeholder="#0C4B33" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_header_background_color_helptext">
+                          #0C4B33
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_header_text_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_header_text_color">Text color:</label>
+                        
+                            <input type="text" id="id_css_header_text_color" class="colorfield_field jscolor form-control" name="css_header_text_color" value="#44B78B" placeholder="#44B78B" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_header_text_color_helptext">
+                          #44B78B
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_header_link_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_header_link_color">Link color:</label>
+                        
+                            <input type="text" id="id_css_header_link_color" class="colorfield_field jscolor form-control" name="css_header_link_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_header_link_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_header_link_hover_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_header_link_hover_color">Link hover color:</label>
+                        
+                            <input type="text" id="id_css_header_link_hover_color" class="colorfield_field jscolor form-control" name="css_header_link_hover_color" value="#C9F0DD" placeholder="#C9F0DD" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_header_link_hover_color_helptext">
+                          #C9F0DD
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Breadcrumbs / Module headers</h2>
+    
+    
+        <div class="form-row field-css_module_background_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_background_color">Background color:</label>
+                        
+                            <input type="text" id="id_css_module_background_color" class="colorfield_field jscolor form-control" name="css_module_background_color" value="#44B78B" placeholder="#44B78B" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_background_color_helptext">
+                          #44B78B
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_background_selected_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_background_selected_color">Background selected color:</label>
+                        
+                            <input type="text" id="id_css_module_background_selected_color" class="colorfield_field jscolor form-control" name="css_module_background_selected_color" value="#FFFFCC" placeholder="#FFFFCC" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_background_selected_color_helptext">
+                          #FFFFCC
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_text_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_text_color">Text color:</label>
+                        
+                            <input type="text" id="id_css_module_text_color" class="colorfield_field jscolor form-control" name="css_module_text_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_text_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_link_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_link_color">Link color:</label>
+                        
+                            <input type="text" id="id_css_module_link_color" class="colorfield_field jscolor form-control" name="css_module_link_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_link_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_link_selected_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_link_selected_color">Link selected color:</label>
+                        
+                            <input type="text" id="id_css_module_link_selected_color" class="colorfield_field jscolor form-control" name="css_module_link_selected_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_link_selected_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_link_hover_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_module_link_hover_color">Link hover color:</label>
+                        
+                            <input type="text" id="id_css_module_link_hover_color" class="colorfield_field jscolor form-control" name="css_module_link_hover_color" value="#C9F0DD" placeholder="#C9F0DD" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_module_link_hover_color_helptext">
+                          #C9F0DD
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_module_rounded_corners">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="css_module_rounded_corners" id="id_css_module_rounded_corners" checked=""><label class="vCheckboxLabel" for="id_css_module_rounded_corners">Rounded corners</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Generic Links</h2>
+    
+    
+        <div class="form-row field-css_generic_link_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_generic_link_color">Link color:</label>
+                        
+                            <input type="text" id="id_css_generic_link_color" class="colorfield_field jscolor form-control" name="css_generic_link_color" value="#0C3C26" placeholder="#0C3C26" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_generic_link_color_helptext">
+                          #0C3C26
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_generic_link_hover_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_generic_link_hover_color">Link hover color:</label>
+                        
+                            <input type="text" id="id_css_generic_link_hover_color" class="colorfield_field jscolor form-control" name="css_generic_link_hover_color" value="#156641" placeholder="#156641" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_generic_link_hover_color_helptext">
+                          #156641
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Save Buttons</h2>
+    
+    
+        <div class="form-row field-css_save_button_background_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_save_button_background_color">Background color:</label>
+                        
+                            <input type="text" id="id_css_save_button_background_color" class="colorfield_field jscolor form-control" name="css_save_button_background_color" value="#0C4B33" placeholder="#0C4B33" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_save_button_background_color_helptext">
+                          #0C4B33
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_save_button_background_hover_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_save_button_background_hover_color">Background hover color:</label>
+                        
+                            <input type="text" id="id_css_save_button_background_hover_color" class="colorfield_field jscolor form-control" name="css_save_button_background_hover_color" value="#0C3C26" placeholder="#0C3C26" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_save_button_background_hover_color_helptext">
+                          #0C3C26
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_save_button_text_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_save_button_text_color">Text color:</label>
+                        
+                            <input type="text" id="id_css_save_button_text_color" class="colorfield_field jscolor form-control" name="css_save_button_text_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_save_button_text_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Delete Buttons</h2>
+    
+    
+        <div class="form-row field-css_delete_button_background_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_delete_button_background_color">Background color:</label>
+                        
+                            <input type="text" id="id_css_delete_button_background_color" class="colorfield_field jscolor form-control" name="css_delete_button_background_color" value="#BA2121" placeholder="#BA2121" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_delete_button_background_color_helptext">
+                          #BA2121
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_delete_button_background_hover_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_delete_button_background_hover_color">Background hover color:</label>
+                        
+                            <input type="text" id="id_css_delete_button_background_hover_color" class="colorfield_field jscolor form-control" name="css_delete_button_background_hover_color" value="#A41515" placeholder="#A41515" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_delete_button_background_hover_color_helptext">
+                          #A41515
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-css_delete_button_text_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_css_delete_button_text_color">Text color:</label>
+                        
+                            <input type="text" id="id_css_delete_button_text_color" class="colorfield_field jscolor form-control" name="css_delete_button_text_color" value="#FFFFFF" placeholder="#FFFFFF" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_css_delete_button_text_color_helptext">
+                          #FFFFFF
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Navigation Bar</h2>
+    
+    
+        <div class="form-row field-foldable_apps">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="foldable_apps" id="id_foldable_apps" checked=""><label class="vCheckboxLabel" for="id_foldable_apps">Foldable apps</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Related Modal</h2>
+    
+    
+        <div class="form-row field-related_modal_active">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="related_modal_active" id="id_related_modal_active" checked=""><label class="vCheckboxLabel" for="id_related_modal_active">Active</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-related_modal_background_color">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_related_modal_background_color">Background color:</label>
+                        
+                            <input type="text" id="id_related_modal_background_color" class="colorfield_field jscolor form-control" name="related_modal_background_color" value="#000000" placeholder="#000000" data-jscolor="{hash:true,width:225,height:150,format:&#39;hex&#39;,required:false,paletteCols:4,paletteHeight:28}">
+
+                        
+                    
+                    
+                        <div class="help" id="id_related_modal_background_color_helptext">
+                          #000000
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-related_modal_background_opacity">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_related_modal_background_opacity">Background opacity:</label>
+                        
+                            <select name="related_modal_background_opacity" id="id_related_modal_background_opacity">
+  <option value="0.1">10%</option>
+
+  <option value="0.2">20%</option>
+
+  <option value="0.3" selected="">30%</option>
+
+  <option value="0.4">40%</option>
+
+  <option value="0.5">50%</option>
+
+  <option value="0.6">60%</option>
+
+  <option value="0.7">70%</option>
+
+  <option value="0.8">80%</option>
+
+  <option value="0.9">90%</option>
+
+</select>
+                        
+                    
+                    
+                        <div class="help" id="id_related_modal_background_opacity_helptext">
+                          20%
+                        </div>
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-related_modal_rounded_corners">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="related_modal_rounded_corners" id="id_related_modal_rounded_corners" checked=""><label class="vCheckboxLabel" for="id_related_modal_rounded_corners">Rounded corners</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-related_modal_close_button_visible">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="related_modal_close_button_visible" id="id_related_modal_close_button_visible" checked=""><label class="vCheckboxLabel" for="id_related_modal_close_button_visible">Close button visible</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Form Controls</h2>
+    
+    
+        <div class="form-row field-form_submit_sticky">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="form_submit_sticky" id="id_form_submit_sticky"><label class="vCheckboxLabel" for="id_form_submit_sticky">Sticky submit</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-form_pagination_sticky">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="form_pagination_sticky" id="id_form_pagination_sticky"><label class="vCheckboxLabel" for="id_form_pagination_sticky">Sticky pagination</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>List Filter</h2>
+    
+    
+        <div class="form-row field-list_filter_highlight">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="list_filter_highlight" id="id_list_filter_highlight" checked=""><label class="vCheckboxLabel" for="id_list_filter_highlight">Highlight active</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-list_filter_dropdown">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="list_filter_dropdown" id="id_list_filter_dropdown" checked=""><label class="vCheckboxLabel" for="id_list_filter_dropdown">Use dropdown</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-list_filter_sticky">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="list_filter_sticky" id="id_list_filter_sticky" checked=""><label class="vCheckboxLabel" for="id_list_filter_sticky">Sticky position</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-list_filter_removal_links">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="list_filter_removal_links" id="id_list_filter_removal_links"><label class="vCheckboxLabel" for="id_list_filter_removal_links">Quick remove links for active filters at top of sidebar</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Change Form</h2>
+    
+    
+        <div class="form-row field-show_fieldsets_as_tabs">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="show_fieldsets_as_tabs" id="id_show_fieldsets_as_tabs"><label class="vCheckboxLabel" for="id_show_fieldsets_as_tabs">Fieldsets as tabs</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-show_inlines_as_tabs">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="show_inlines_as_tabs" id="id_show_inlines_as_tabs"><label class="vCheckboxLabel" for="id_show_inlines_as_tabs">Inlines as tabs</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+  <fieldset class="module aligned wide">
+    <h2>Recent Actions</h2>
+    
+    
+        <div class="form-row field-recent_actions_visible">
+            
+            
+                <div class="checkbox-row">
+                    
+                    
+                        <input type="checkbox" name="recent_actions_visible" id="id_recent_actions_visible" checked=""><label class="vCheckboxLabel" for="id_recent_actions_visible">Visible</label>
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+
+
+    
+
+
+
+
+
+
+
+    
+    
+        
+
+
+    
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+</div>
+
+
+
+    <script id="django-admin-form-add-constants" src="./Add Theme _ Django administration_files/change_form.js.download" data-model-name="theme" async="">
+    </script>
+
+
+
+
+<script id="django-admin-prepopulated-fields-constants" src="./Add Theme _ Django administration_files/prepopulate_init.js.download" data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+          
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+      </div>
+    </div>
+</div>
+<!-- END Container -->
+
+
+</body></html>

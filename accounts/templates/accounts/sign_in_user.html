@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<main id="main" data-aos="fade" data-aos-delay="1500" class="aos-init aos-animate">
+
+  <!-- ======= End Page Header ======= -->
+  <div class="page-header d-flex align-items-center">
+    <div class="container position-relative">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-6 text-center">
+          <h2>Login </h2>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Page Header -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <div class="row gy-4 justify-content-center">
+
+        <div class="col-lg-3">
+          <div class="info-item d-flex">
+            <i class="bi bi-geo-alt flex-shrink-0"></i>
+            <div>
+              <h4>Location:</h4>
+              <p>Plot No 5-B, CGO Complex,Lodhi Road, New Delhi-110003</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-lg-3">
+          <div class="info-item d-flex">
+            <i class="bi bi-envelope flex-shrink-0"></i>
+            <div>
+              <h4>Email:</h4>
+              <p>info@example.com</p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+        <div class="col-lg-3">
+          <div class="info-item d-flex">
+            <i class="bi bi-phone flex-shrink-0"></i>
+            <div>
+              <h4>Call:</h4>
+              <p>011-24302700 </p>
+              <p> 011-24362755 </p>
+            </div>
+          </div>
+        </div><!-- End Info Item -->
+
+      </div>
+
+      <div class="row justify-content-center mt-4">
+
+        <div class="col-lg-9">
+
+
+          {% for message in messages %}
+          {% if message.tags == 'error' %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong> You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% else %}
+          <div class="alert alert-success alert-dismissible  show" role="alert">
+            <strong>{{message}}</strong> 
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endif %}
+          {% endfor %}
+          <form method="post" action = "{% url 'sign_in_user' %}" role="form" >
+
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+              </div>
+
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Your password" required>
+              </div>
+            </div>
+            <br>
+
+            <div class="text-center"><button type="submit" class=" cta-btn btn btn-success btn-lg " >Login</button></div>
+             
+          </form>
+          <br>
+
+          <div class="text-center"><a href="{% url 'sign_up_user' %}">Don't have an Account create one</a></div> 
+        </div><!-- End Contact Form -->
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+
+</main>
+
+<div id="preloader">
+  <div class="line"></div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

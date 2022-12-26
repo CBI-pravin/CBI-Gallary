@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+
+
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+        <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2>Update account</h2>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+
+
+            <div class="row justify-content-center mt-4">
+
+                <div class="col-lg-9">
+                    {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-success alert-dismissible  show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    <form action="{% url 'update_user' request.user.id %}" method="post" enctype="multipart/form-data"
+                        role="form">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        {% if field.label == 'Password' %}
+
+                        {% else %}
+                        <div class="form-group mt-3">
+                            <label for="exampleInputEmail1" class="form-label">{{field.label}}</label>
+                            {{field}}
+                        </div>
+                        {% endif %}
+
+                        {% endfor %}
+
+                        <div class="text-center"><button class=" btn btn-success" type="submit">Update</button></div>
+                    </form>
+                </div><!-- End Contact Form -->
+                
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+
+
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<div id="preloader">
+    <div class="line"></div>
+</div>
+
+
+
+
+{% endblock %}
