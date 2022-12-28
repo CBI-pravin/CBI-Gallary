@@ -22,7 +22,7 @@ def error_500(request):
     return render(request, '500.html')
 
 
-
+@login_required(login_url='sign_in_user')
 def searchfolder(request):
     q = request.GET.get('search') if request.GET.get('search')!= None else ''
     
@@ -37,7 +37,7 @@ def searchfolder(request):
         return redirect('folder')
 
 
-
+@login_required(login_url='sign_in_user')
 def searchvideo(request):
     q = request.GET.get('search') if request.GET.get('search')!= None else ''
     
@@ -59,7 +59,7 @@ def customFilter(request):
     if request.method == "POST":
         std = request.POST.get('strtDT') if request.POST.get('strtDT')!= '' else False
         enddt = request.POST.get('endDT') if request.POST.get('endDT')!= '' else False
-        admincheck = True if request.POST.get('admincheck')!= None else False
+       
         print(enddt)
         if std or enddt or admincheck:
 
@@ -105,7 +105,7 @@ def home(request):
     return render(request,'home/index3.html',context)
 
 
-
+@login_required(login_url='sign_in_user')
 def videoShow(request):
     posts = myvideos.objects.filter(status = True).order_by('-video_created_date')
     p = Paginator(posts, 20)
@@ -161,14 +161,11 @@ def upload_video(request):
             var=request.FILES.getlist('video')
             pk= request.user.id
             if form.is_valid():
-                bulk_list = []
-                for video in var:
-                    bulk_list.append(myvideos(video=video, video_owner= MyUser.objects.get(id=pk),video_description=form.cleaned_data['video_description']))
-                try:
-                    myvideos.objects.bulk_create(bulk_list)
-                    messages.success(request,"video uploaded successfully")
-                except Exception as E:
-                    raise Http404
+                form = form.save(commit=False)
+                form.video_owner = request.user
+                form.save()
+                messages.success(request,"video uploaded successfully")
+                form = VideoUploadForm()
                
             else:
                 messages.error(request,'{}'.format(form.errors))            

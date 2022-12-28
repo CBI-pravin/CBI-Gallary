@@ -27,7 +27,7 @@ class VideoUploadForm(ModelForm):
         model = myvideos
         fields = ['video','video_description']
         widgets ={'video': forms.FileInput(
-                attrs = {'class':'form-control form-control-lg','placeholder':'Video File','multiple': True}
+                attrs = {'class':'form-control form-control-lg','placeholder':'Video File'}
             ),
             
             'video_description': forms.Textarea(
