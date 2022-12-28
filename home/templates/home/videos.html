@@ -46,7 +46,7 @@
 
 {% for video in videos %}
 
-    <video width="310" height="240" controls   controlsList="nodownload">
+    <video width="310" height="240" controls  preload="auto"   controlsList="nodownload">
         <source src="{{video.video.url}}">
       
       </video>
