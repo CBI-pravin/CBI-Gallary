@@ -32,7 +32,7 @@ class ProductAdmin(admin.ModelAdmin): # new
      actions = [active_account,deactive_account,make_superuser_account,make_normal_account]
      list_per_page = 30
 
-     exclude = ['verify_token']
+     exclude = ['verify_token','password']
 
 
 admin.site.register(MyUser,ProductAdmin)

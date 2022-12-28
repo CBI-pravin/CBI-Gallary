@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import Http404
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect,HttpResponse
 
 from django.contrib.auth.decorators import login_required
 
@@ -139,7 +139,7 @@ def upload_img(request):
                     mygallary.objects.bulk_create(bulk_list)
                     messages.success(request,"image uploaded successfully")
                 except Exception as E:
-                    raise Http404
+                    raise HttpResponse(status=500)
                
             else:
                 messages.error(request,'{}'.format(form.errors))            
@@ -158,8 +158,7 @@ def upload_video(request):
     if request.user.is_superuser:
         if request.method == 'POST':
             form = VideoUploadForm(data=request.POST, files=request.FILES)
-            var=request.FILES.getlist('video')
-            pk= request.user.id
+          
             if form.is_valid():
                 form = form.save(commit=False)
                 form.video_owner = request.user
@@ -220,7 +219,7 @@ def deletePost(request,pk):
             obj.save()
             return redirect('home')
         except Exception as E:
-            raise Http404
+            raise HttpResponse(status=500)
     else:
         raise Http404
 
@@ -263,7 +262,7 @@ def folder(request):
             context = { 'folder':folder}
             return render(request,'home/folder_photos.html' ,context)
         except Exception as E:
-            pass
+            raise Http404
 
       
     # _______________new folder creation code____________
@@ -275,7 +274,7 @@ def folder(request):
                 obj.save()
                 return redirect('folder')
             except Exception as E:
-                raise Http404
+                raise HttpResponse(status=500)
 
     # default query to load folders from database
     context = folder_pafination(request)
@@ -303,7 +302,7 @@ def remove_post_folder(request):
             return HttpResponseRedirect(f'/home/folders/?q={f}')
 
         except Exception as e:
-            raise Http404
+            raise HttpResponse(status=500)
     else:
         raise Http404
 
@@ -329,14 +328,17 @@ def add_img_folder(request,pk):
         else:
 
             # code to fetch all image from gallary where image not present in folder
+            try:
             
-            obj = mygallary.objects.raw(f"SELECT * FROM home_mygallary where id not in (SELECT mygallary_id FROM cbigallary.home_myfolder_photo where myfolder_id ={pk}) AND status = True ORDER BY created_date DESC ")
-            
-            foldername = myfolder.objects.get(id=pk).name
+                obj = mygallary.objects.raw(f"SELECT * FROM home_mygallary where id not in (SELECT mygallary_id FROM cbigallary.home_myfolder_photo where myfolder_id ={pk}) AND status = True ORDER BY created_date DESC ")
+                
+                foldername = myfolder.objects.get(id=pk).name
 
-            context = {'image':obj,'folder':pk,'folder_name':foldername}
-        
-            return render(request,'home/add_img_folder.html',context)
+                context = {'image':obj,'folder':pk,'folder_name':foldername}
+            
+                return render(request,'home/add_img_folder.html',context)
+            except Exception as E:
+                raise HttpResponse(status=500)
     else:
         raise Http404      
 
@@ -360,9 +362,12 @@ def remove_img_folder(request,pk):
             
             return HttpResponseRedirect(f'/home/folders/?q={pk}')
         else:
-            foldername = myfolder.objects.get(id=pk)
-            context = {'folder':foldername}
-            return render(request,'home/remove_img_folder.html',context)
+            try:
+                foldername = myfolder.objects.get(id=pk)
+                context = {'folder':foldername}
+                return render(request,'home/remove_img_folder.html',context)
+            except Exception as E:
+                raise Http404
     else:
         raise Http404
 
@@ -383,8 +388,11 @@ def delete_folder(request):
                 return redirect('folder')
 
         else:
-            obj = myfolder.objects.all().order_by('-folder_created_date')
-            context = {'obj': obj}
-            return render(request,'home/delete_folder.html' ,context)   
+            try:
+                obj = myfolder.objects.all().order_by('-folder_created_date')
+                context = {'obj': obj}
+                return render(request,'home/delete_folder.html' ,context)  
+            except Exception as E:
+                raise HttpResponse(status=500) 
     else:
         raise Http404 
