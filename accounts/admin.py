@@ -27,7 +27,7 @@ class ProductAdmin(admin.ModelAdmin): # new
      readonly_fields = ['profile_picture_preview']
      list_display = ['name','email', 'designation','is_superuser','is_active','date_joined']
      # list_display = [field.name for field in MyUser._meta.fields if field.name != "user_permissions"]
-     list_filter = [('date_joined',DateRangeFilter),'is_superuser','designation',]
+     list_filter = [('date_joined',DateRangeFilter),'is_superuser','is_active','designation',]
      search_fields=['name','designation','email']
      actions = [active_account,deactive_account,make_superuser_account,make_normal_account]
      list_per_page = 30

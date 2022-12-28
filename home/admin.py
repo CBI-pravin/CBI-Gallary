@@ -46,7 +46,7 @@ def custom_titled_filter(title):
 class PhotoAdmin(admin.ModelAdmin): # new
     readonly_fields = ['img_preview']
     list_display = ['owner', 'img_preview','status']
-    list_filter = ['owner__designation',('status', custom_titled_filter('active post ')),('created_date',DateRangeFilter)]
+    list_filter = ['owner__designation',('status', custom_titled_filter('active post ')),('created_date',DateRangeFilter),'status']
     search_fields = ['owner__email','owner__name','owner__designation','description']
     list_per_page = 30
     actions = [temp_delete_img,restore_delete_img]
@@ -71,7 +71,7 @@ class VideoAdmin(admin.ModelAdmin): # new
     readonly_fields = ['video_preview']
     list_display = ['video_owner','video_preview','video_created_date','status']
      
-    list_filter = [('video_created_date',DateRangeFilter)]
+    list_filter = [('video_created_date',DateRangeFilter),'status']
     search_fields = ['video_owner__name','video_owner__email','video_owner__designation']
 
     list_per_page = 30
