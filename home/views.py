@@ -91,13 +91,15 @@ def customFilter(request):
 def home(request):
     posts = mygallary.objects.filter(status = True).order_by('-created_date')
     p = Paginator(posts, 28)
-    page_number = request.GET.get('page')
+    page_number = request.GET.get('page') if request.GET.get('page')!= None else 1
     try:
         page_obj = p.get_page(page_number) 
     except PageNotAnInteger:
         page_obj = p.page(1)
     except EmptyPage:
         page_obj = p.page(p.num_pages)
+    # page_no = p.get_elided_page_range(number=page_number)
+    page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
     context ={'page_obj': page_obj,'image':page_obj}
     return render(request,'home/index3.html',context)
 
@@ -105,14 +107,15 @@ def home(request):
 @login_required(login_url='sign_in_user')
 def videoShow(request):
     posts = myvideos.objects.filter(status = True).order_by('-video_created_date')
-    p = Paginator(posts, 20)
-    page_number = request.GET.get('page')
+    p = Paginator(posts, 16)
+    page_number = request.GET.get('page') if request.GET.get('page')!= None else 1
     try:
         page_obj = p.get_page(page_number) 
     except PageNotAnInteger:
         page_obj = p.page(1)
     except EmptyPage:
         page_obj = p.page(p.num_pages)
+    page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
     context ={'page_obj': page_obj,'videos':page_obj}
     # return render(request,'home/index3.html',context)
     return render(request,'home/videos.html',context)
@@ -229,17 +232,15 @@ def deletePost(request,pk):
 # ------------function for folder pagination -----------------------------------------
 def folder_pafination(request):
     posts = myfolder.objects.all().order_by('-folder_created_date')# fetching all post objects from database
-    p = Paginator(posts,30) # creating a paginator object
-	# getting the desired page number from url
-    page_number = request.GET.get('page')
+    p = Paginator(posts, 24)
+    page_number = request.GET.get('page') if request.GET.get('page')!= None else 1
     try:
-        page_obj = p.get_page(page_number) # returns the desired page object
+        page_obj = p.get_page(page_number) 
     except PageNotAnInteger:
-		# if page_number is not an integer then assign the first page
         page_obj = p.page(1)
     except EmptyPage:
-		# if page is empty then return last page
         page_obj = p.page(p.num_pages)
+    page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
     context = {'page_obj': page_obj,'obj':page_obj}
     return context 
 # ------------ end function for folder pagination -----------------------------------------
