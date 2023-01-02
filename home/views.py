@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect,HttpResponse
 
 from django.contrib.auth.decorators import login_required
 
-from datetime import date
+
 
 
 from .forms import ImageUploadForm,VideoUploadForm
@@ -61,7 +61,7 @@ def customFilter(request):
         enddt = request.POST.get('endDT') if request.POST.get('endDT')!= '' else False
        
         print(enddt)
-        if std or enddt or admincheck:
+        if std or enddt :
 
             if enddt and  std :
                 obj = mygallary.objects.filter(created_date__range = (std, enddt) ,status = True).order_by('-created_date')
@@ -82,9 +82,6 @@ def customFilter(request):
         else:
             messages.error(request,'please select valid filter')
        
-            # obj = mygallary.objects.filter(status = True).order_by('-created_date')
-            # context = {'image':obj}
-            # return render(request,'home/index3.html',context)
             return redirect('home')
 
 
@@ -138,6 +135,7 @@ def upload_img(request):
                 try:
                     mygallary.objects.bulk_create(bulk_list)
                     messages.success(request,"image uploaded successfully")
+                    form = ImageUploadForm()
                 except Exception as E:
                     raise HttpResponse(status=500)
                
@@ -160,12 +158,14 @@ def upload_video(request):
             form = VideoUploadForm(data=request.POST, files=request.FILES)
           
             if form.is_valid():
-                form = form.save(commit=False)
-                form.video_owner = request.user
-                form.save()
-                messages.success(request,"video uploaded successfully")
-                form = VideoUploadForm()
-               
+                try:
+                    form = form.save(commit=False)
+                    form.video_owner = request.user
+                    form.save()
+                    messages.success(request,"video uploaded successfully")
+                    form = VideoUploadForm()
+                except Exception as E:
+                    raise HttpResponse(status=500)
             else:
                 messages.error(request,'{}'.format(form.errors))            
         else:
