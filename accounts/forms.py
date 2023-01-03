@@ -7,11 +7,11 @@ from django.contrib.auth.forms import SetPasswordForm
 class MyUserCreationForm(UserCreationForm):
     password1 = forms.CharField(
         label="Password",
-        widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg', 'type':'password', 'align':'center', 'placeholder':'password'}),
+        widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg', 'type':'password', 'align':'center', 'id':'password1' ,'placeholder':'password'}),
     )
     password2 = forms.CharField(
         label="Confirm password",
-        widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg', 'type':'password', 'align':'center', 'placeholder':'confirm password'}),
+        widget=forms.PasswordInput(attrs={'class':'form-control form-control-lg', 'type':'password', 'align':'center','id':'password2' , 'placeholder':'confirm password'}),
     )
     class Meta:
         model = MyUser

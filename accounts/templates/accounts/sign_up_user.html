@@ -29,7 +29,8 @@
             <i class="bi bi-geo-alt flex-shrink-0"></i>
             <div>
               <h4>Location:</h4>
-              <p>	8th , 9th and 10th Floor, Plot No. C-35A, 'G' Block, Bandra Kurla Complex (BKC), Near MTNL Exchange, Bandra (East), Mumbai 400098.</p>
+              <p> 8th , 9th and 10th Floor, Plot No. C-35A, 'G' Block, Bandra Kurla Complex (BKC), Near MTNL Exchange,
+                Bandra (East), Mumbai 400098.</p>
             </div>
           </div>
         </div><!-- End Info Item -->
@@ -50,8 +51,8 @@
             <div>
               <h4>Call:</h4>
               <p>022-26529938
-                </p>
-              <p>  022-26529934 </p>
+              </p>
+              <p> 022-26529934 </p>
             </div>
           </div>
         </div><!-- End Info Item -->
@@ -66,7 +67,7 @@
           {% for message in messages %}
           {% if message.tags == 'error' %}
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>{{message}}</strong> You should check in on some of those fields below.
+            <strong>{{message}}</strong> 
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           {% else %}
@@ -86,6 +87,14 @@
               </div>
 
               {% endfor %}
+              <div class="form-group mt-3">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                    onclick="ShowPassword()">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Show Password</label>
+                </div>
+              </div>
+
             </div>
             <br>
 
@@ -111,5 +120,22 @@
 
 
 </main>
+
+<script>
+  function ShowPassword() {
+    var x = document.getElementById("password1");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+    var y = document.getElementById("password2");
+    if (y.type === "password") {
+      y.type = "text";
+    } else {
+      y.type = "password";
+    }
+  }
+</script>
 
 {% endblock %}
