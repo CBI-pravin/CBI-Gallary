@@ -29,7 +29,7 @@ def searchfolder(request):
     folder = myfolder.objects.filter(Q(name__icontains=q)|Q (folder_owner__name__icontains=q) ).order_by('-folder_created_date')
    
     if folder:
-        context = {'obj':folder}
+        context = {'page_obj':folder}
     
         return render(request,'home/folder.html' ,context)
     else:
@@ -44,7 +44,7 @@ def searchvideo(request):
     folder = myvideos.objects.filter(Q(video_description__icontains=q)|Q (video_owner__name__icontains=q),status = True).order_by('-video_created_date')
    
     if folder:
-        context = {'videos':folder}
+        context = {'page_obj':folder}
     
         return render(request,'home/videos.html' ,context)
     else:
@@ -66,18 +66,18 @@ def customFilter(request):
             if enddt and  std :
                 obj = mygallary.objects.filter(created_date__range = (std, enddt) ,status = True).order_by('-created_date')
                 
-                context= {'image':obj}
+                context= {'page_obj':obj}
                 return render(request,'home/index3.html',context)
 
             elif enddt:
                 obj = mygallary.objects.filter(created_date__lte = enddt ,status = True).order_by('-created_date')
                 
-                context={'image':obj}
+                context={'page_obj':obj}
                 return render(request,'home/index3.html',context)
             elif std:
                 obj = mygallary.objects.filter(created_date__gte  =std,status = True).order_by('-created_date')
                 
-                context={'image':obj}
+                context={'page_obj':obj}
                 return render(request,'home/index3.html',context)
         else:
             messages.error(request,'please select valid filter')
@@ -100,7 +100,7 @@ def home(request):
         page_obj = p.page(p.num_pages)
     # page_no = p.get_elided_page_range(number=page_number)
     page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
-    context ={'page_obj': page_obj,'image':page_obj}
+    context ={'page_obj': page_obj,}
     return render(request,'home/index3.html',context)
 
 
@@ -116,7 +116,7 @@ def videoShow(request):
     except EmptyPage:
         page_obj = p.page(p.num_pages)
     page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
-    context ={'page_obj': page_obj,'videos':page_obj}
+    context ={'page_obj': page_obj,}
     # return render(request,'home/index3.html',context)
     return render(request,'home/videos.html',context)
 
@@ -241,7 +241,7 @@ def folder_pafination(request):
     except EmptyPage:
         page_obj = p.page(p.num_pages)
     page_obj.adjusted_elided_pages = p.get_elided_page_range(page_number)
-    context = {'page_obj': page_obj,'obj':page_obj}
+    context = {'page_obj': page_obj,}
     return context 
 # ------------ end function for folder pagination -----------------------------------------
 

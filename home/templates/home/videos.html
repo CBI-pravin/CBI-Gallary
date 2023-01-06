@@ -44,7 +44,7 @@
     </div><!-- End Page Header -->
 
 <div class="container">
-{% for video in videos %}
+{% for video in page_obj %}
 
     <video width="320" height="240" controls class="p-2" preload="auto"   controlsList="nodownload">
         <source src="{{video.video.url}}">
