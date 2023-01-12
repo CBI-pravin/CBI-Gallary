@@ -105,7 +105,7 @@ class myfolder(models.Model):
 
 
 class myvideos(models.Model):
-    video = models.FileField(upload_to=UploadToPathAndRenameVideo('media/video/'),validators=[FileExtensionValidator(allowed_extensions=["mp4",'mov','wmv','flv','avi','avchd ', "webm", "ogg"])])
+    video = models.FileField(upload_to=UploadToPathAndRenameVideo('media/video/'),validators=[FileExtensionValidator(allowed_extensions=["mp4",'mov','wmv','flv','avi','avchd ', "webm",'gif','gifv','svi', "ogg"])])
     video_owner = models.ForeignKey(MyUser,related_name='video_owner',on_delete=models.CASCADE)
     video_description = models.TextField(null=True,blank=True)
     video_created_date  = models.DateTimeField(auto_now_add=True)
