@@ -94,7 +94,7 @@ class myfolder(models.Model):
         """Method to return store image for admin panel"""
         images = ''
         for image_path in self.photo.all():
-            images+=('<a href="%s"/>%s</a> &nbsp -> &nbsp %s <br><br> ' % (image_path.image.url,image_path,image_path.owner))   
+            images+=('<img src = "{}" height = "150"width = "250"/> &nbsp <a href="%s"/>%s</a> &nbsp -> &nbsp %s <br><br> '.format(image_path.image.url) % (image_path.image.url,image_path,image_path.owner))   
         return mark_safe(images)         
          
     img_preview.allow_tags = True
