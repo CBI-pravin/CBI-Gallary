@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser,BaseUserManager,UserManager
 
 import os
 from uuid import uuid4
@@ -28,6 +28,15 @@ class UploadToPathAndRename(object):
         return os.path.join(self.sub_path, filename)
 
 
+class MyUserManager(UserManager):
+    def create_superuser(self, email, password, **kwargs):
+        user = self.model(email=email, is_staff=True, is_superuser=True,**kwargs)
+        user.set_password(password)
+        user.save()
+        return user
+
+
+
 class MyUser(AbstractUser):
     username = None
     first_name = None
@@ -40,7 +49,8 @@ class MyUser(AbstractUser):
     verify_token = models.TextField(max_length=100,null=True,blank=True)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['name','designation','username','profile_pic']
+    REQUIRED_FIELDS = ['name','designation']
+    objects = MyUserManager()
     
     # preview of image in admin pannel
     def profile_picture_preview(self): #new
